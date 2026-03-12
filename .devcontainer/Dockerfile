@@ -18,8 +18,5 @@ RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
     mv terraform /usr/local/bin/ && \
     rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
-# Install AWS CLI
-RUN pip3 install --upgrade awscli
-
 # Switch back to non-root user
 USER codespace
