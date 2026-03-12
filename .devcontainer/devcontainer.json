@@ -8,6 +8,11 @@
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
   ],
 
+  "runArgs": [
+    "--group-add",
+    "docker"
+  ],
+ "postCreateCommand": "sudo groupmod -g $(stat -c '%g' /var/run/docker.sock) docker || true && sudo usermod -aG docker vscode",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -15,4 +20,4 @@
       ]
     }
   }
-} 
+}
